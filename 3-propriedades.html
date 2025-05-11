@@ -18,11 +18,13 @@
         default: 'bg-gray-500',
         primary: 'bg-purple-500'
       }
-      function Button({ variant = 'default', children }) {
+      function Button({ variant = 'default', children, ...props }) {
         return (
           <button className={`px-3 py-2 text-white rounded
             ${buttonVariants[variant]}
-            `}>
+            `}
+              {...props}
+            >
               {children}
           </button>
         )
@@ -31,7 +33,7 @@
       function App() {
         return (
           <main className="flex gap-2 p-3">
-           <Button>
+           <Button title="Meu Botão">
             Meu Botão
             </Button>
             <Button variant="primary">
